@@ -7,6 +7,7 @@ import {
   priceOptions,
 } from 'src/constants/formData';
 import { useActivityStore } from 'src/constants/store';
+import useWindowDimensions from 'src/hooks/useWindowDimensions';
 
 type FormValues = {
   type: string;
@@ -18,6 +19,9 @@ type FormValues = {
 const FormComponent = () => {
   const [form] = Form.useForm<FormValues>();
   const { setActivity, setError } = useActivityStore(state => state);
+  const { width } = useWindowDimensions();
+
+  console.log(width);
 
   const onFinish = async (values: FormValues) => {
     const { type, accessibility, participants, price } = values;
@@ -65,7 +69,11 @@ const FormComponent = () => {
   };
 
   return (
-    <Form layout='inline' form={form} onFinish={onFinish}>
+    <Form
+      layout={width > 1440 ? 'inline' : 'horizontal'}
+      form={form}
+      onFinish={onFinish}
+    >
       <Select
         name='type'
         label='Type of Activity'

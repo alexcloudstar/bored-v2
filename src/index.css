@@ -17,10 +17,17 @@ main {
   background-color: #181818;
 }
 
-.dark-mode .ant-typography {
-  color: #f1f1f1;
+.dark-mode .ant-typography,
+.dark-mode label {
+  color: #f1f1f1 !important;
 }
 
 .ant-btn:hover {
   color: #03b6fc;
+}
+
+.center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
