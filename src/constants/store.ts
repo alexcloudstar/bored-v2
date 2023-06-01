@@ -11,3 +11,13 @@ export const useBearStore = create<BearState>()(set => ({
   increase: by => set(state => ({ bears: state.bears + by })),
   decrease: by => set(state => ({ bears: state.bears - by })),
 }));
+
+export type DarkModeState = {
+  darkMode: boolean;
+  toggleDarkMode: () => void;
+};
+
+export const useDarkModeStore = create<DarkModeState>(set => ({
+  darkMode: false,
+  toggleDarkMode: () => set(state => ({ darkMode: !state.darkMode })),
+}));
