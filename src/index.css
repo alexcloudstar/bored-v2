@@ -12,3 +12,11 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+.dark-mode {
+  background-color: #181818;
+}
+
+.dark-mode .ant-typography {
+  color: #f1f1f1;
+}
