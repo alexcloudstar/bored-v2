@@ -1,6 +1,7 @@
-import { Button, Col, Row } from 'antd';
-import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
+import { Col, Row, Space, Typography } from 'antd';
 import { useBearStore } from '../constants/store';
+
+const { Title } = Typography;
 
 const Homepage = () => {
   const { bears, increase, decrease } = useBearStore(state => state);
@@ -11,20 +12,11 @@ const Homepage = () => {
   return (
     <>
       <Row>
-        <Col span={24}>Current number of 🧸: {bears}</Col>
         <Col span={24}>
-          <Button
-            type='primary'
-            icon={<PlusOutlined />}
-            size='large'
-            onClick={increaseBears}
-          />
-          <Button
-            type='primary'
-            icon={<MinusOutlined />}
-            size='large'
-            onClick={decreaseBears}
-          />
+          <Space align='center' direction='vertical'>
+            <Title>Are you bored?</Title>
+            <Title level={2}>We help you to find your next activity!</Title>
+          </Space>
         </Col>
       </Row>
     </>
