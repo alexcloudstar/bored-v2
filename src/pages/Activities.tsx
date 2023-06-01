@@ -1,9 +1,17 @@
-import { FormComponent } from 'src/components';
+import { Col, Row, Space } from 'antd';
+import { Activity, FormComponent } from 'src/components';
 
 const Activities = () => {
   return (
     <>
-      <FormComponent />
+      <Row gutter={[32, 32]}>
+        <Col span={24}>
+          <Space align='center' direction='vertical' size='middle'>
+            <FormComponent />
+            <Activity />
+          </Space>
+        </Col>
+      </Row>
     </>
   );
 };

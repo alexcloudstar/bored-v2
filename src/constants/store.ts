@@ -18,17 +18,15 @@ type ActivityState = {
     participants: number;
     price: number;
     accessibility: number;
-  };
+  } | null;
+  error: string | null;
   setActivity: (activity: ActivityState['activity']) => void;
+  setError: (error: ActivityState['error']) => void;
 };
 
 export const useActivityStore = create<ActivityState>(set => ({
-  activity: {
-    activity: '',
-    type: '',
-    participants: 0,
-    price: 0,
-    accessibility: 0,
-  },
+  activity: null,
+  error: '',
   setActivity: (activity: ActivityState['activity']) => set({ activity }),
+  setError: (error: ActivityState['error']) => set({ error }),
 }));

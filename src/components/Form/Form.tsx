@@ -17,7 +17,7 @@ type FormValues = {
 
 const FormComponent = () => {
   const [form] = Form.useForm<FormValues>();
-  const { activity, setActivity } = useActivityStore(state => state);
+  const { setActivity, setError } = useActivityStore(state => state);
 
   const onFinish = async (values: FormValues) => {
     const { type, accessibility, participants, price } = values;
@@ -28,11 +28,27 @@ const FormComponent = () => {
     if (price) url += `&price=${price}`;
 
     const res = await fetch(url);
+
+    if (!res.ok) {
+      setActivity(null);
+      setError('Something went wrong. Please try again.');
+      return;
+    }
+
     const data = await res.json();
+
+    if (data.error) {
+      return setError(data.error);
+    }
+
     setActivity(data);
   };
 
-  const onReset = () => form.resetFields();
+  const onReset = () => {
+    form.resetFields();
+    setActivity(null);
+    setError(null);
+  };
 
   const onGetRandomActivity = async () => {
     const res = await fetch('http://www.boredapi.com/api/activity/');
@@ -48,15 +64,8 @@ const FormComponent = () => {
     setActivity(data);
   };
 
-  console.log(activity);
-
   return (
-    <Form
-      layout='inline'
-      form={form}
-      onFinish={onFinish}
-      // onFinishFailed={onFinishFailed}
-    >
+    <Form layout='inline' form={form} onFinish={onFinish}>
       <Select
         name='type'
         label='Type of Activity'
