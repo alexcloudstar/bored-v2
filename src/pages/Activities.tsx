@@ -1,5 +1,11 @@
+import { FormComponent } from 'src/components';
+
 const Activities = () => {
-  return <>Activities</>;
+  return (
+    <>
+      <FormComponent />
+    </>
+  );
 };
 
 export default Activities;
