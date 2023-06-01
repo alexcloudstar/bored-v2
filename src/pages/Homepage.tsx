@@ -1,16 +1,10 @@
 import { Col, Image, Row, Space, Typography } from 'antd';
-import { useBearStore } from '../constants/store';
 import Logo from 'src/assets/logo.png';
 import { DarkMode } from 'src/components';
 
 const { Title } = Typography;
 
 const Homepage = () => {
-  const { bears, increase, decrease } = useBearStore(state => state);
-
-  const increaseBears = () => increase(1);
-  const decreaseBears = () => decrease(1);
-
   return (
     <>
       <Row>
