@@ -1,13 +1,20 @@
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Space, Switch, Typography } from 'antd';
 import { useDarkModeStore } from 'src/constants/store';
+import { setLocalStorage } from 'src/utils/localStorage';
 
 const { Title } = Typography;
 
 const DarkMode = () => {
   const { darkMode, toggleDarkMode } = useDarkModeStore(state => state);
 
-  const onToggle = () => toggleDarkMode();
+  const onToggle = () => {
+    toggleDarkMode();
+
+    !darkMode
+      ? setLocalStorage('darkMode', 'true')
+      : setLocalStorage('darkMode', 'false');
+  };
 
   return (
     <>
