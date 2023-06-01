@@ -5,8 +5,11 @@
 - [API](https://www.boredapi.com/)
 ### Tehnologies:
 - Vite
-- React
 - Typescript
+- React
+- React Router Dom
 - Fetch
-- ant.design
-- zustand
+- Ant Design / Ant Design Icons
+- Zustand
+- Prettier
+- Eslint
