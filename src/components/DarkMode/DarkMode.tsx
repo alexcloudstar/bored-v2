@@ -19,7 +19,7 @@ const DarkMode = () => {
   return (
     <>
       <Space align='center' direction='vertical'>
-        <Title level={5}>Toggle Dark Mode</Title>
+        <Title level={4}>Toggle Dark Mode</Title>
         <Switch
           checkedChildren={<CheckOutlined />}
           unCheckedChildren={<CloseOutlined />}

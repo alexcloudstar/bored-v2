@@ -20,3 +20,7 @@ main {
 .dark-mode .ant-typography {
   color: #f1f1f1;
 }
+
+.ant-btn:hover {
+  color: #03b6fc;
+}

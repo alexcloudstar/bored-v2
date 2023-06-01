@@ -1,7 +1,5 @@
-import React from 'react';
-
 const Activities = () => {
-  return <div>Activities</div>;
+  return <>Activities</>;
 };
 
 export default Activities;
